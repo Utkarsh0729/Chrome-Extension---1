@@ -24,18 +24,18 @@
   "web_accessible_resources" : [
     {
       "resources": [
-        "bookmark.png",
-        "delete.png",
-        "play.png"
+        "assets/bookmark.png",
+        "assets/delete.png",
+        "assets/play.png"
       ],
       "matches" : ["<all_urls>"]
     }
   ],
   "action": {
     "default_icon": {
-      "16": "ext-icon.png",
-      "24": "ext-icon.png",
-      "32": "ext-icon.png"
+      "16": "assets/ext-icon.png",
+      "24": "assets/ext-icon.png",
+      "32": "assets/ext-icon.png"
     },
     "default_popup": "popup.html",
     "default_title": "AZ Problem Tracker"

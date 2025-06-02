@@ -18,29 +18,40 @@
     }
     
     async function addNewBookmarkHandler() {
+        console.log("1");
         const currentBookmarks = await getCurrentBookmarks();
-
-
-        const problemURL = window.location.href;
-        const ind = problemURL.indexOf("?", 26);
-        const uniqueId = problemURL.substring(26, ind);
+        
+        //generating Name and UniqueId
+        problemURL = window.location.href;
+        const ind = problemURL.indexOf("?");
+        if(ind !== -1) {
+            problemURL = problemURL.substring(0, ind);
+        }
         const problemName = document.querySelector(".coding_problem_info_heading__G9ueL").textContent;
-
-        if(currentBookmarks.some((bookmark) => bookmark.id === uniqueId)) return;
-
+        const uniqueId = problemName;
+        
+        console.log(currentBookmarks);
+        if(currentBookmarks.some((bookmark) => bookmark.id === uniqueId)) {
+            console.log("Problem already bookmarked!");
+            alert('Problem already bookmarked!');
+            return;
+        }
+        console.log("3");
+        
         const bookmarkObj = {
             id: uniqueId,
             name: problemName,
             url: problemURL
         }
-
-        const updatedBookmarks = [...currentBookmarks, bookmarkObj];
-
+        
+        const updatedBookmarks = [bookmarkObj, ...currentBookmarks];
+        
         chrome.storage.sync.set({Problem_Key: updatedBookmarks}, () => {
             alert('Problem bookmarked!');
             console.log("Updated bookmarks to ", updatedBookmarks);
         })
-
+        console.log("4");
+        
     }
 
 

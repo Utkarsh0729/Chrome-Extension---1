@@ -1,12 +1,13 @@
 {
   "manifest_version": 3,
   "name": "AZ Problem Tracker",
-  "version": "0.1",
+  "version": "1.0",
   "author": "Utkarsh Tripathi",
   "description": "A chrome extension to track problems in AZ",
   "permissions": [
     "storage",
-    "tabs"
+    "tabs",
+    "scripting"
   ],
   "content_scripts": [
     {
